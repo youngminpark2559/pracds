@@ -1,4 +1,4 @@
-# Source of this code is from CPMP's Optimal Expected Submission Value
+# Original source of this code is from CPMP's Optimal Expected Submission Value
 # https://www.kaggle.com/cpmpml/optimal-expected-submission-value/code
 # I add my additional comment and result of each code execution onto his code
 

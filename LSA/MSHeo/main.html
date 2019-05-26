@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 20px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 100px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+img {
+ width:900px;
+}
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+<xmp>
+
+https://www.youtube.com/watch?v=GVPTGq53H5I
+
+================================================================================
+/home/young/Pictures/2019_05_26_18:19:50.png
+
+/home/young/Pictures/2019_05_26_18:20:04.png
+
+================================================================================
+/home/young/Pictures/2019_05_26_18:20:48.png
+
+- Let's use bag of word
+- Meaning
+  - pizza and hamburger are US food
+  - cosine_similarity(pizza,hamburger)=0
+  - cosine_similarity is dot product of pizza vector ([1,0,0,0,0]) and hamburger vector ([0,1,0,0,0])
+  - cosine_similarity(pizza,ramen)=0
+  - cosine_similarity(pizza,hamburger)=0 doesn't make sense
+
+================================================================================
+Let's perform same task by using TF-IDF
+But you will get same incorrect similarity result
+
+================================================================================
+Why this incorrect result occurs?
+
+It's because bag of word and TF-IDF are word-based vectors
+
+It means you can't find any topic from the word,
+so you get 0 similarity
+
+================================================================================
+LSA can find similarity based on "topic"
+
+================================================================================
+Word-document matrix
+
+/home/young/Pictures/2019_05_26_18:33:27.png
+
+Words in y axis: individual words
+Elements in x axis: 6 sentences
+
+Let's call above 2D array as A
+
+================================================================================
+Perform singular vector decomposition
+
+$$$A \approx U \times \Sigma \times V^t$$$
+
+/home/young/Pictures/2019_05_26_18:39:42.png
+
+================================================================================
+$$$U$$$ can be considered as "word matrix" for topic
+
+/home/young/Pictures/2019_05_26_18:40:15.png
+
+================================================================================
+$$$V^T$$$ can be considered as "document (or sentence) matrix" for topic
+
+/home/young/Pictures/2019_05_26_18:40:52.png
+
+================================================================================
+$$$\Sigma$$$ can be considered as "strength matrix" for topic
+
+/home/young/Pictures/2019_05_26_18:41:08.png
+
+================================================================================
+/home/young/Pictures/2019_05_26_18:42:34.png
+
+What you are interested in "document (or sentence) matrix" for topic
+
+So, multiply "strength" by "document (or sentence) matrix" for topic
+
+================================================================================
+Due to characteristic of $$$\Sigma$$$, 
+diagonal elements are descending order which has importance
+/home/young/Pictures/2019_05_26_18:43:45.png
+
+================================================================================
+For simplicity, select 2 importances: t1 and t2
+
+/home/young/Pictures/2019_05_26_18:44:56.png
+
+$$$(2,2) \cdot (2,6) = (2,6)$$$
+
+================================================================================
+Actual result
+
+/home/young/Pictures/2019_05_26_18:47:26.png
+
+================================================================================
+Let's plot this table on 2D space
+
+/home/young/Pictures/2019_05_26_18:47:55.png
+
+================================================================================
+Result
+
+/home/young/Pictures/2019_05_26_18:48:20.png
+
+================================================================================
+Let's calculate cosine similarities
+
+cosine_similarity(d1,d2)=1
+cosine_similarity(d1,d3)=1
+cosine_similarity(d2,d3)=1
+Max of cosine_similarity is 1
+Max similarity
+
+================================================================================
+/home/young/Pictures/2019_05_26_18:49:53.png
+
+cosine_similarity(d4,d5)=1
+cosine_similarity(d4,d6)=1
+cosine_similarity(d5,d6)=1
+Max of cosine_similarity is 1
+Max similarity
+
+================================================================================
+/home/young/Pictures/2019_05_26_18:50:39.png
+
+Conclusion
+- You can know the latent semantic of 2 axes
+
+================================================================================
+/home/young/Pictures/2019_05_26_18:51:25.png
+
+d2 has more strength
+
+But cosine similarity ignores strength so that you get 1 from both circles
+
+================================================================================
+
+</xmp>
+   </BODY>
+</HTML>

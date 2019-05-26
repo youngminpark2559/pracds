@@ -54,12 +54,12 @@ MathJax.Hub.Config({
 https://www.youtube.com/watch?v=GVPTGq53H5I
 
 ================================================================================
-/home/young/Pictures/2019_05_26_18:19:50.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:19:50.png' alt=''><xmp>
 
-/home/young/Pictures/2019_05_26_18:20:04.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:20:04.png' alt=''><xmp>
 
 ================================================================================
-/home/young/Pictures/2019_05_26_18:20:48.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:20:48.png' alt=''><xmp>
 
 - Let's use bag of word
 - Meaning
@@ -87,7 +87,7 @@ LSA can find similarity based on "topic"
 ================================================================================
 Word-document matrix
 
-/home/young/Pictures/2019_05_26_18:33:27.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:33:27.png' alt=''><xmp>
 
 Words in y axis: individual words
 Elements in x axis: 6 sentences
@@ -99,25 +99,25 @@ Perform singular vector decomposition
 
 $$$A \approx U \times \Sigma \times V^t$$$
 
-/home/young/Pictures/2019_05_26_18:39:42.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:39:42.png' alt=''><xmp>
 
 ================================================================================
 $$$U$$$ can be considered as "word matrix" for topic
 
-/home/young/Pictures/2019_05_26_18:40:15.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:40:15.png' alt=''><xmp>
 
 ================================================================================
 $$$V^T$$$ can be considered as "document (or sentence) matrix" for topic
 
-/home/young/Pictures/2019_05_26_18:40:52.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:40:52.png' alt=''><xmp>
 
 ================================================================================
 $$$\Sigma$$$ can be considered as "strength matrix" for topic
 
-/home/young/Pictures/2019_05_26_18:41:08.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:41:08.png' alt=''><xmp>
 
 ================================================================================
-/home/young/Pictures/2019_05_26_18:42:34.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:42:34.png' alt=''><xmp>
 
 What you are interested in "document (or sentence) matrix" for topic
 
@@ -126,29 +126,29 @@ So, multiply "strength" by "document (or sentence) matrix" for topic
 ================================================================================
 Due to characteristic of $$$\Sigma$$$, 
 diagonal elements are descending order which has importance
-/home/young/Pictures/2019_05_26_18:43:45.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:43:45.png' alt=''><xmp>
 
 ================================================================================
 For simplicity, select 2 importances: t1 and t2
 
-/home/young/Pictures/2019_05_26_18:44:56.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:44:56.png' alt=''><xmp>
 
 $$$(2,2) \cdot (2,6) = (2,6)$$$
 
 ================================================================================
 Actual result
 
-/home/young/Pictures/2019_05_26_18:47:26.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:47:26.png' alt=''><xmp>
 
 ================================================================================
 Let's plot this table on 2D space
 
-/home/young/Pictures/2019_05_26_18:47:55.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:47:55.png' alt=''><xmp>
 
 ================================================================================
 Result
 
-/home/young/Pictures/2019_05_26_18:48:20.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:48:20.png' alt=''><xmp>
 
 ================================================================================
 Let's calculate cosine similarities
@@ -160,7 +160,7 @@ Max of cosine_similarity is 1
 Max similarity
 
 ================================================================================
-/home/young/Pictures/2019_05_26_18:49:53.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:49:53.png' alt=''><xmp>
 
 cosine_similarity(d4,d5)=1
 cosine_similarity(d4,d6)=1
@@ -169,14 +169,13 @@ Max of cosine_similarity is 1
 Max similarity
 
 ================================================================================
-/home/young/Pictures/2019_05_26_18:50:39.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:50:39.png' alt=''><xmp>
 
 Conclusion
 - You can know the latent semantic of 2 axes
 
 ================================================================================
-/home/young/Pictures/2019_05_26_18:51:25.png
-
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/LSA/MSHeo/pics/2019_05_26_18:51:25.png' alt=''><xmp>
 d2 has more strength
 
 But cosine similarity ignores strength so that you get 1 from both circles

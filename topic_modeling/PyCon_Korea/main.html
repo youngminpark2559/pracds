@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 20px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 100px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+/* img {
+ width:900px;
+} */
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+<xmp>
+
+https://www.youtube.com/watch?v=F4sIkIlGG78
+
+================================================================================
+/home/young/Pictures/2019_05_26_21:55:08.png
+
+- Review the corpus data based on several options
+/home/young/Pictures/2019_05_26_21:57:40.png
+
+- Perform topic modeling by using LDA
+/home/young/Pictures/2019_05_26_21:58:04.png
+
+- Visualize topic modeling
+/home/young/Pictures/2019_05_26_21:57:23.png
+Left: 1 to 5 topics
+Right: keywords in each topic
+
+/home/young/Pictures/2019_05_26_21:59:48.png
+Based on keywords in topic2,
+you can guess topic2 is related to skin-trouble
+
+- Perform word embedding
+* Meaning of word (or conceptt) is determined by around-words
+/home/young/Pictures/2019_05_26_22:10:48.png
+
+* Words of Moon, Trump, Jinping are determined as president thing 
+because there is predident as around-word
+* Python is kind of programming language
+because there are programming words around Python
+/home/young/Pictures/2019_05_26_22:12:04.png
+
+- Perform sentiment analysis
+/home/young/Pictures/2019_05_26_22:00:32.png
+
+* Scaled f-score: which keywords are related to "positive"?
+which keywords are related to "negative"?
+/home/young/Pictures/2019_05_26_22:01:57.png
+
+* Use scattertext
+/home/young/Pictures/2019_05_26_22:02:38.png
+
+* Keywords which has "positive" sentiment
+/home/young/Pictures/2019_05_26_22:02:57.png
+
+* Keywords which has "negative" sentiment
+/home/young/Pictures/2019_05_26_22:03:42.png
+
+- perform interactive visualization by using pyLDAvis
+
+- Get consumer insights
+
+================================================================================
+Word embedding
+
+/home/young/Pictures/2019_05_26_22:14:08.png
+
+- Create corpus by using 2.6M reviews
+- Corpus = {docs}
+/home/young/Pictures/2019_05_26_22:15:44.png
+
+- Use Word2Vec
+/home/young/Pictures/2019_05_26_22:15:34.png
+
+- Get word embeding
+/home/young/Pictures/2019_05_26_22:15:23.png
+
+- Test
+/home/young/Pictures/2019_05_26_22:16:27.png
+
+- Draw chart by using PCA
+/home/young/Pictures/2019_05_26_22:27:42.png
+
+- Use Tensorboard's Projector
+/home/young/Pictures/2019_05_26_22:28:09.png
+  * keyword_you_input={related_keywords}
+
+================================================================================
+Future works
+/home/young/Pictures/2019_05_26_22:29:30.png
+
+
+/home/young/Pictures/2019_05_26_22:30:20.png
+
+================================================================================
+* Feature engineering
+
+Words (corpus) are too domain specific,
+so you should replace old "corpus analyzer" with new updated one
+
+================================================================================
+Example
+
+/home/young/Pictures/2019_05_26_22:32:13.png
+
+/home/young/Pictures/2019_05_26_22:32:54.png
+
+/home/young/Pictures/2019_05_26_22:33:17.png
+
+/home/young/Pictures/2019_05_26_22:33:51.png
+
+/home/young/Pictures/2019_05_26_22:34:19.png
+
+/home/young/Pictures/2019_05_26_22:34:46.png
+
+/home/young/Pictures/2019_05_26_22:35:13.png
+
+/home/young/Pictures/2019_05_26_22:35:39.png
+
+
+
+
+</xmp>
+   </BODY>
+</HTML>

@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 20px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 100px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+/* img {
+ width:900px;
+} */
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+<xmp>
+
+https://ratsgo.github.io/machine%20learning/2017/04/28/tSNE/
+
+================================================================================
+t-SNE are for "dimensionality reduction" and "visualization"
+
+================================================================================
+t-SNE visualizes "high dimensional data like word vector"
+
+================================================================================
+y=tSNE(x)
+
+x: data in high dimension
+y: data in low dimension
+tSNE: trainable
+$$$|x-x_{\text{neighbors}}|$$$: should be preserved as much as possible
+Distance $$$|x-x_{\text{neighbors}}|$$$ is represented stochastically
+
+================================================================================
+/home/young/Pictures/2019_05_28_14:15:41.png
+
+$$$p_{j|i}$$$: when $$$x_i$$$ is given, probability of $$$x_j$$$ occurring
+$$$x_j$$$: jth neighbor of $$$x_i$$$
+
+================================================================================
+/home/young/Pictures/2019_05_28_14:17:00.png
+
+$$$q_{j|i}$$$: when $$$y_i$$$ is given, probability of $$$y_j$$$ occurring
+$$$y_j$$$: jth neighbor of $$$y_i$$$
+
+================================================================================
+Goal of SNE: reduce the difference between p and q
+
+================================================================================
+probability_distribution_1
+probability_distribution_2
+
+if probability_distribution_1==probability_distribution_2:
+  kullback_leibler_divergence->0
+elif probability_distribution_1!=probability_distribution_2:
+  kullback_leibler_divergence->1
+
+================================================================================
+So, you can use kullback_leibler_divergence as cost function for SNE
+
+/home/young/Pictures/2019_05_28_14:20:07.png
+
+================================================================================
+Tricks to increase the training speed on SNE
+
+- Omit $$$\sigma_i$$$ and use constant
+- $$$\sigma_i$$$: prevents "probability" from being tortured
+because each vector has different probability of chosen
+
+- Solve equation with supposing that following 2 probabilities are same
+"when i-data is given, probability of j-data occurring"
+"when j-data is given, probability of i-data occurring"
+
+================================================================================
+By using above 2 tricks, you can newly write p and q
+
+/home/young/Pictures/2019_05_28_14:24:37.png
+
+================================================================================
+Therefore, you can write cost function by using new p and q
+
+/home/young/Pictures/2019_05_28_14:25:02.png
+
+================================================================================
+Calculate partial derivatives (gradient) of cost $$$C$$$ wrt neighbor-data $$$y_i$$$
+
+/home/young/Pictures/2019_05_28_14:25:55.png
+
+================================================================================
+Note that your goal is to find "y" in low dimension
+
+SNE updates SNE by using gradient descent
+- Initialize y
+- Update y by using direction and size of gradient
+
+================================================================================
+SNE supposes you are dealing with "Gaussian Normal distribution"
+
+Crowding problem is caused by "Gaussian Normal distribution"
+because "Gaussian Normal distribution" has not-thick tails
+
+Crowding problem:
+prob1=when i-data is given, probability of j-data-far occurring
+prob2=when i-data is given, probability of j-data-near occurring
+
+prob1 $$$\sim$$$ prob2
+
+================================================================================
+How to solve "crowding problem"?
+
+Use "Gaussian Normal distribution" which has thick tails
+
+This is t-SNE
+
+================================================================================
+t-SNE
+
+$$$p_{i|j}$$$: same
+$$$q_{i|j}$$$: use t-distribution to make tails thick
+
+/home/young/Pictures/2019_05_28_14:34:30.png
+
+================================================================================
+Usecase of t-SNE
+
+1. 
+embedding_vector=word2vec(token_sentence)
+visualize: tSNE(embedding_vector)
+
+2. 
+clustered_docs=clustering(many_documents)
+visualize: tSNE(clustered_docs)
+
+================================================================================
+
+</xmp>
+   </BODY>
+</HTML>

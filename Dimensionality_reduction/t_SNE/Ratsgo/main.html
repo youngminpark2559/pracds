@@ -69,13 +69,13 @@ $$$|x-x_{\text{neighbors}}|$$$: should be preserved as much as possible
 Distance $$$|x-x_{\text{neighbors}}|$$$ is represented stochastically
 
 ================================================================================
-/home/young/Pictures/2019_05_28_14:15:41.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:15:41.png' alt=''><xmp>
 
 $$$p_{j|i}$$$: when $$$x_i$$$ is given, probability of $$$x_j$$$ occurring
 $$$x_j$$$: jth neighbor of $$$x_i$$$
 
 ================================================================================
-/home/young/Pictures/2019_05_28_14:17:00.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:17:00.png' alt=''><xmp>
 
 $$$q_{j|i}$$$: when $$$y_i$$$ is given, probability of $$$y_j$$$ occurring
 $$$y_j$$$: jth neighbor of $$$y_i$$$
@@ -95,7 +95,7 @@ elif probability_distribution_1!=probability_distribution_2:
 ================================================================================
 So, you can use kullback_leibler_divergence as cost function for SNE
 
-/home/young/Pictures/2019_05_28_14:20:07.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:20:07.png' alt=''><xmp>
 
 ================================================================================
 Tricks to increase the training speed on SNE
@@ -111,17 +111,17 @@ because each vector has different probability of chosen
 ================================================================================
 By using above 2 tricks, you can newly write p and q
 
-/home/young/Pictures/2019_05_28_14:24:37.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:24:37.png' alt=''><xmp>
 
 ================================================================================
 Therefore, you can write cost function by using new p and q
 
-/home/young/Pictures/2019_05_28_14:25:02.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:25:02.png' alt=''><xmp>
 
 ================================================================================
 Calculate partial derivatives (gradient) of cost $$$C$$$ wrt neighbor-data $$$y_i$$$
 
-/home/young/Pictures/2019_05_28_14:25:55.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:25:55.png' alt=''><xmp>
 
 ================================================================================
 Note that your goal is to find "y" in low dimension
@@ -155,7 +155,7 @@ t-SNE
 $$$p_{i|j}$$$: same
 $$$q_{i|j}$$$: use t-distribution to make tails thick
 
-/home/young/Pictures/2019_05_28_14:34:30.png
+</xmp><img src='https://raw.githubusercontent.com/youngminpark2559/pracds/master/Dimensionality_reduction/t_SNE/Ratsgo/pics/2019_05_28_14:34:30.png' alt=''><xmp>
 
 ================================================================================
 Usecase of t-SNE

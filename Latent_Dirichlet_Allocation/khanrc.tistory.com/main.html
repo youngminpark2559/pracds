@@ -94,8 +94,42 @@ How LDA finds above topics?
 
 - LDA preassumes several things
   - You set N number of words which will be inserted into documents, based on Poisson distribution
-  - 
+  - From K number of topic set, you determine the topic for the document,
+  based on Dirichlet distribution
+  For example, suppose 2 topics "food" and "cute animal"
+  A document will choose "food" (1/3) and "cute animal" (2/3)
+  - Select words for each document
+    - First, select topic based on multinomial distribution
+    - For example, "food" (1/3) and "cute animal" (2/3)
+    - By using above topics (food, cute animal),
+    generate words like "broccoli" (30%), "bananas" (15%), ...
+   - Summary:
+     - You suppose "generative model" on the documents
+     - LDA, reversely, finds the best topic which has highest probability, from the documents
 
+================================================================================
+How to learn
+
+- You have document set
+- You configure K (number of topics you want to find)
+- You want to find "topic" on each document
+- You want to find words in each "topic"
+
+How to do it using LDA?
+- You use "collapsed Gibbs sampling"
+- You assign random one topic (out of K number of topics) to each document
+- Now, all documents have topic, all topics have words-distribution
+- You need to train above distributions
+- Each document d,
+- Each word w in each document d,
+- Each topic t,
+- You calculate following 2 things
+- 1. p(topic_t|document_d)
+When document d is given, probability of topic_t occurring
+- 2. p(word_w|topic_t)
+When topic t is given, probability of word w occurring
+- Calculate p(topic_t|document_d)*p(word_w|topic_t)
+- Based on above value, choose new topic t
 
 </xmp>
    </BODY>

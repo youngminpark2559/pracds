@@ -159,7 +159,25 @@ $$$p(x_1,x_2,x_3)$$$
 ================================================================================
 Let's do above sampling by using Gibss sampling
 
+- Make one ramdom sample, $$$X^0 = (x_1^0,x_2^0,x_3^0)$$$
+- Change only one random variable (like $$$X_1$$$)
+and make next new sample $$$X^1$$$
+- When you use sample, you throw away $$$X^0$$$ and you will use only $$$X^1$$$
 
+================================================================================
+Let's see more detail about following step
+/ Change only one random variable (like $$$X_1$$$) /
+/ and make next new sample $$$X^1$$$ /
+
+- Fix 2 random variables' value $$$x_2^0,x_3^0$$$ from give sample $$$X^{0}$$$
+- Create new $$$x_1^1$$$ based on following probability, $$$p(x_1^1|x_2^0,x_3^0)$$$
+- Fix 2 random variables' value $$$x_1^1,x_3^0$$$ from give sample $$$X^{0}$$$
+- Create new $$$x_2^1$$$ based on following probability, $$$p(x_2^1|x_1^1,x_3^0)$$$
+- Fix 2 random variables' value $$$x_1^1,x_2^1$$$ from give sample $$$X^{0}$$$
+- Create new $$$x_3^1$$$ based on following probability, $$$p(x_3^1|x_1^1,x_2^1)$$$
+- You get final $$$X^1$$$ as $$$X^1 = (x_1^1,x_2^1,x_3^1)$$$
+
+================================================================================
 
 
 

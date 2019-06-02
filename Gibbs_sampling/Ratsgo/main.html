@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+<HTML>
+   <HEAD>
+      <TITLE>My first HTML document</TITLE>
+      <style rel="stylesheet" type="text/css">
+body {
+ font-size: 20px;
+ 
+ margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: 80px;
+    margin-left: 100px;
+    
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-right: 80px;
+    padding-left: 80px;
+    
+    line-height:35px;
+}
+/* img {
+ width:900px;
+} */
+</style>
+      <script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    "HTML-CSS" : {
+        availableFonts : ["STIX"],
+        preferredFont : "STIX",
+        webFont : "STIX-Web",
+        imageFont : null
+    }
+});
+</script>
+     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js" type="text/javascript">    
+    MathJax.Hub.Config({
+        HTML: ["input/TeX","output/HTML-CSS"],
+        TeX: { extensions: ["AMSmath.js","AMSsymbols.js"], 
+               equationNumbers: { autoNumber: "AMS" } },
+        extensions: ["tex2jax.js"],
+        jax: ["input/TeX","output/HTML-CSS"],
+        tex2jax: { inlineMath: [ ['$$$','$$$'] ],
+                   displayMath: [ ['$$$$','$$$$'] ],
+                   processEscapes: true },
+        "HTML-CSS": { availableFonts: ["TeX"],
+                      linebreaks: { automatic: true } }
+    });
+</script>
+   </HEAD>
+   <BODY>
+<xmp>
+
+https://ratsgo.github.io/statistics/2017/05/31/gibbs/
+
+================================================================================
+Gibss sampling
+
+- Probabilistic algorithm
+- Generates samples based on joint probability distribution of over-2 random variables
+- Much used to approximate "joint probability distribution"
+- Much used to approximate calculating probability of "joint probability distribution"
+- Gibbs sampling $$$\subset$$$ Markov Chain Monte Carlo 
+
+================================================================================
+Monte Carlo method
+
+- Select random sample
+- Calculate output value of function by using sample in the probabilistic way
+- When output value of function can't be expressed in the closed form
+- When output value of function is too complicated
+- MC is used to approximate "output value of fucntion"
+
+================================================================================
+Calculate circle rate by using MC
+
+/home/young/Downloads/2p1va60.gif
+
+- From the space [0,1] $$$\times$$$ [0,1],
+randomly choose the point $$$(x,y)$$$
+
+- Above point is included the circle (whose radius is 1)?
+Calculate following inequality equation, $$$x^2+y^2 \le 1$$$
+True: point is classified into red point
+False: point is classified into blue point
+
+- Iterate above 2 steps
+
+- Caculate following
+$$$\dfrac{\text{number of red point}}{\text{number of entire point}}$$$
+
+- Above output becomes nearly $$$\frac{\pi}{4}$$$
+
+- You can finally approximate $$$\pi$$$ by using $$$\frac{\pi}{4}$$$
+
+================================================================================
+Markov Chain
+
+- Discrete time based probabilistic process which follows Markov assumption
+
+- Markov assumption
+  - state probability at time t depends on "the very previous state"
+  - Transition (from previous one to current one) doesn't require the long history of state transition
+  - Transition can be inferenced by using "the very previous state"
+  - Markov assumption in math form
+  /home/young/Pictures/2019_06_02_08:36:20.png
+
+- With "specific condition being satisfied",
+if you interate "Markov Chain",
+"probability of current state" becomes equal to "probability of the very previous state"
+
+- Probability distribution which arrvies to equilibrium state is called "stationary distribution"
+
+================================================================================
+Markov Chain Monte Carlo
+
+- Monte Carlo method which makes sample 
+from the probability distribution which follows Markov Chain
+
+How to do
+- Create "Markov Chain" which has target distribution 
+(where you want to make sample from) 
+
+- Target distribution should be equal to "stationary distribution" of "Markov Chain"
+
+- Run the simulation of this "Markov Chain"
+
+- After passing "burn-in period" (where values are affected by "random initial values")
+you can generate samples which follow "above defined target distribution 
+as well as stationary distribution of the Markov Chain"
+
+
+
+
+
+
+</xmp>
+   </BODY>
+</HTML>

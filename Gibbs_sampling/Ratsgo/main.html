@@ -54,7 +54,7 @@ MathJax.Hub.Config({
 https://ratsgo.github.io/statistics/2017/05/31/gibbs/
 
 ================================================================================
-Gibss sampling
+Gibbs sampling
 
 - Probabilistic algorithm
 - Generates samples based on joint probability distribution of over-2 random variables
@@ -157,7 +157,7 @@ $$$p(x_1,x_2,x_3)$$$
 - You want to create "one sample" from that joint probability distribution
 
 ================================================================================
-Let's do above sampling by using Gibss sampling
+Let's do above sampling by using Gibbs sampling
 
 - Make one ramdom sample, $$$X^0 = (x_1^0,x_2^0,x_3^0)$$$
 - Change only one random variable (like $$$X_1$$$)
@@ -188,10 +188,101 @@ But after you make many sample, initial status becomes no effect
 It means you can make sample based on joint probability distribution p
 
 ================================================================================
+Suppose you want to make samples which follows 2D Gaussian Normal distribution
+by using Gibbs sampling
 
+/home/young/Downloads/91TeFpu.gif
 
+================================================================================
+- Suppose data which has 3 random variables a,b,c
+- Then, you have to make sample 3 times
+  - Fix: b,c, Extract: a
+  - Fix: a,c, Extract: b
+  - Fix: a,b, Extract: c
 
+================================================================================
+There are variants of "Gibbs sampling"
 
+- Block Gibbs sampling (extract something in group)
+  - Fix: c, Extract: a,b
+  - Fix: a,b, Extract: c
+
+- Collapsed Gibbs sampling (remove useless random variable)
+  - Remove: b, Fix: c, Extract: a
+  - Remove: b, Fix: a, Extract: c
+
+================================================================================
+Code
+
+Gibbs sampling
+- Start from x or y
+- Iterate p(y|x) and p(x|y)
+- Based on above conditional probability, select samples
+- Output sample x and y becomes approximated sample 
+which can be obtained from joint probability distribution of x and y
+
+================================================================================
+Problem definition
+
+- Roll the 2 dices
+- Value of the first dice is x, sum value of the 2 dices is y
+- Think of joint probability of x and y
+
+================================================================================
+import random
+
+def roll_a_die():
+    # Value of the dice is {1,2,3,4,5,6}
+    # Each value has same probability of chosen (uniform distribution)
+
+    # Return one value from {1,2,3,4,5,6}
+    return random.choice(range(1,7))
+
+================================================================================
+def direct_sample():
+    # Value 1
+    d1 = roll_a_die()
+    # Value 2
+    d2 = roll_a_die()
+
+    x=d1
+    y=d1+d2
+
+    return x, y
+
+================================================================================
+# Calculate p(y|x)
+def random_y_given_x(x):
+    given_condition=x
+    variable_y=roll_a_die()
+
+    new_y=given_condition+variable_y
+
+    return new_y
+
+# Calculate p(x|y)
+def random_x_given_y(y):
+
+    given_condition=y
+
+    if given_condition <= 7:
+        return random.randrange(1, y)
+    else:
+        return random.randrange(y-6, 7)
+
+================================================================================
+# Gibbs sampling function
+def gibbs_sample(num_iters=100):
+    # Random initial values
+    x, y = 1, 2
+
+    ================================================================================
+    for _ in range(num_iters):
+        # Fix: y, Extract: x
+        x = random_x_given_y(y)
+        # Fix: x, Extract: y
+        y = random_y_given_x(x)
+    return x, y
 
 </xmp>
    </BODY>
